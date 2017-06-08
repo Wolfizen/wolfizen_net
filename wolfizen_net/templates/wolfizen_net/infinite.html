@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wolfizen.net | ∞</title>
+</head>
+<body>
+    <h1>You are on level {{ depth }}</h1>
+    <p>
+        {% if depth > 0 %}
+        <a href="{% url 'infinite-recursion' depth=prev_depth %}">Up a level</a>
+        |
+        {% endif %}
+        <a href="{% url 'infinite-recursion' depth=next_depth %}">Down a level</a>
+    </p>
+</body>
+</html>
