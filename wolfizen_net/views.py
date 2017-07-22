@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 class RootPageView(TemplateView):
     template_name = "wolfizen_net/root.html"
 
+
 class InfiniteRecursionView(TemplateView):
     template_name = "wolfizen_net/infinite.html"
 
@@ -13,3 +14,7 @@ class InfiniteRecursionView(TemplateView):
         context['next_depth'] = context['depth'] + 1
         context['prev_depth'] = context['depth'] - 1
         return context
+
+
+class RainbowTextView(TemplateView):
+    template_name = "wolfizen_net/rainbow.html"
