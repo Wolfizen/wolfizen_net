@@ -2,7 +2,7 @@ from django.db import models
 
 
 class ShowVote(models.Model):
-    show = models.ForeignKey('wolfizen_net.Show', on_delete=models.CASCADE, related_name='votes')
+    show = models.ForeignKey('rsfa_voting.Show', on_delete=models.CASCADE, related_name='votes')
     source_ip = models.GenericIPAddressField()
     created_at = models.DateTimeField(auto_now_add=True)
 

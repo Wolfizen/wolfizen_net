@@ -1,0 +1,20 @@
+from django.views.generic import TemplateView
+
+
+class RootPageView(TemplateView):
+    template_name = "main/root.html"
+
+
+class InfiniteRecursionView(TemplateView):
+    template_name = "main/infinite.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(InfiniteRecursionView, self).get_context_data(**kwargs)
+        context['depth'] = int(context['depth'])
+        context['next_depth'] = context['depth'] + 1
+        context['prev_depth'] = context['depth'] - 1
+        return context
+
+
+class RainbowTextView(TemplateView):
+    template_name = "main/rainbow.html"

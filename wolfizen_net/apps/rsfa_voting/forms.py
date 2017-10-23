@@ -1,7 +1,7 @@
 from django.forms import ModelForm, Form
 from django.forms.models import ModelChoiceField
 
-from wolfizen_net.models import Show
+from wolfizen_net.apps.rsfa_voting.models import Show
 
 
 class CreateShowForm(ModelForm):

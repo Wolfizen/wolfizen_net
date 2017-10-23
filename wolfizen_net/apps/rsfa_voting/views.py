@@ -1,36 +1,16 @@
-from django.db.models import Count, F, Subquery, Sum, Case, When
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.urls import reverse_lazy, reverse
 from django.views import View
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import CreateView
 from django.views.generic.list import ListView
 
-from wolfizen_net.forms import CreateShowForm, VoteForm
-from wolfizen_net.models import Show, ShowVote
-
-
-class RootPageView(TemplateView):
-    template_name = "wolfizen_net/root.html"
-
-
-class InfiniteRecursionView(TemplateView):
-    template_name = "wolfizen_net/infinite.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(InfiniteRecursionView, self).get_context_data(**kwargs)
-        context['depth'] = int(context['depth'])
-        context['next_depth'] = context['depth'] + 1
-        context['prev_depth'] = context['depth'] - 1
-        return context
-
-
-class RainbowTextView(TemplateView):
-    template_name = "wolfizen_net/rainbow.html"
+from wolfizen_net.apps.rsfa_voting.forms import CreateShowForm, VoteForm
+from wolfizen_net.apps.rsfa_voting.models import Show, ShowVote
 
 
 class ShowListView(ListView):
-    template_name = "wolfizen_net/rsfa_voting.html"
+    template_name = "rsfa_voting/list_votes.html"
     model = Show
 
     def get_context_data(self, **kwargs):
@@ -42,9 +22,9 @@ class ShowListView(ListView):
 
 
 class CreateShowView(CreateView):
-    template_name = "wolfizen_net/create_show.html"
+    template_name = "rsfa_voting/create_show.html"
     form_class = CreateShowForm
-    success_url = reverse_lazy('rsfa-voting')
+    success_url = reverse_lazy('rsfa-voting:list-votes')
 
     def form_valid(self, form):
         # Duplicate code from super, to add code between save() and returning response
@@ -54,7 +34,7 @@ class CreateShowView(CreateView):
 
 
 class VoteView(View):
-    success_url = reverse_lazy('rsfa-voting')
+    success_url = reverse_lazy('rsfa-voting:list-votes')
 
     def post(self, request):
         source_ip = get_client_ip(self.request)
@@ -69,7 +49,7 @@ class VoteView(View):
         else:
             # TODO
             print("Invalid form: {}".format(form.errors))
-        return redirect(reverse('rsfa-voting'))
+        return redirect(reverse('rsfa-voting:list-votes'))
 
 
 def get_client_ip(request):

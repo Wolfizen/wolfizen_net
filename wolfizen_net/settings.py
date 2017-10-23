@@ -69,7 +69,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'wolfizen_net',
+    'wolfizen_net.apps.main',
+    'wolfizen_net.apps.rsfa_voting',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +88,7 @@ ROOT_URLCONF = 'wolfizen_net.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, os.path.join('wolfizen_net', 'templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
