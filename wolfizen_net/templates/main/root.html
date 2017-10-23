@@ -1,15 +1,108 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
+    <style>
+/* Font Configuraiton */
+@import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
+body {
+    text-align: center;
+    font-family: 'Overpass Mono', monospace;
+}
+
+/* Responsive images, size down on mobile devices */
+img {
+    max-width: 100%;
+}
+
+.heading {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+}
+.heading ~ .heading {
+    margin-top: 2em;
+    margin-bottom: 0.2em;
+}
+
+/* Center tables */
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border: 0;
+}
+
+/* Center-aligned text appearance within the links table */
+#links-table td:nth-child(1) {text-align: right;}
+#links-table td:nth-child(3) {text-align: left;}
+
+/* Background Configuration */
+/* https://codepen.io/P1N2O/pen/pyBNzX */
+html {
+    min-height: 100%;
+}
+body {
+    color: #fff;
+    background: linear-gradient(45deg, #73e9e0, #922fc4);
+    background-size: 400% 400%;
+    background-repeat: no-repeat;
+    -webkit-animation: animated-bg 15s ease infinite;
+    -moz-animation: animated-bg 15s ease infinite;
+    animation: animated-bg 15s ease infinite;
+}
+@-webkit-keyframes animated-bg {
+    0% {background-position: 0% 50%}
+    50% {background-position: 100% 50%}
+    100% {background-position: 0% 50%}
+}
+@-moz-keyframes animated-bg {
+    0% {background-position: 0% 50%}
+    50% {background-position: 100% 50%}
+    100% {background-position: 0% 50%}
+}
+@keyframes animated-bg {
+    0% {background-position: 0% 50%}
+    50% {background-position: 100% 50%}
+    100% {background-position: 0% 50%}
+}
+    </style>
     <meta charset="UTF-8">
     <title>wolfizen.net</title>
 </head>
 <body>
-    <h1>wolfizen.net</h1>
+    <img src="{% static 'main/2017-07-26_Rokemi_icon_512_transparent.png' %}" alt="wolfizen profile icon" />
+    <h1 class="heading">wolfizen.net</h1>
     <p>
-        Twitter : <a href="http://twitter.wolfizen.net">@Wolfizen</a>
-        Keybase : <a href="http://key.wolfizen.net">Wolfizen</a>
+        I'm Wolfizen. You may also know me as Wolfgang.<br/>
+        You can find me at RPI, in Troy NY.
     </p>
+    <table id="links-table">
+        <tr>
+            <td>Twitter</td>
+            <td>:</td>
+            <td><a href="http://twitter.wolfizen.net">@Wolfizen</a></td>
+        </tr>
+        <tr>
+            <td>Keybase</td>
+            <td>:</td>
+            <td><a href="http://key.wolfizen.net">Wolfizen</a></td>
+        </tr>
+        <tr>
+            <td>Github</td>
+            <td>:</td>
+            <td><a href="https://github.com/Wolfizen">Wolfizen/</a></td>
+        </tr>
+        <tr>
+            <td>Telegram</td>
+            <td>:</td>
+            <td><a href="http://tg.wolfizen.net">@Wolfizen</a></td>
+        </tr>
+        <tr>
+            <td>SoundCloud</td>
+            <td>:</td>
+            <td><a href="https://soundcloud.com/wolfizen">Wolfizen</a></td>
+        </tr>
+    </table>
+    <h2 class="heading">Random Works</h2>
     <p>
         <a href="{% url 'main:infinite-recursion' depth=0 %}">Infinite recursion</a>
         <a href="{% url 'main:rainbow-text' %}">Rainbow text</a>
