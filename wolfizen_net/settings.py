@@ -70,7 +70,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'wolfizen_net.apps.main',
-    'wolfizen_net.apps.rsfa_voting',
 ]
 
 MIDDLEWARE = [
