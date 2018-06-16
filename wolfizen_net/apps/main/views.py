@@ -10,9 +10,10 @@ class InfiniteRecursionView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(InfiniteRecursionView, self).get_context_data(**kwargs)
-        context['depth'] = int(context['depth'])
-        context['next_depth'] = context['depth'] + 1
-        context['prev_depth'] = context['depth'] - 1
+        current_depth = int(context['depth'])
+        context['depth'] = current_depth
+        context['next_depth'] = current_depth + 1
+        context['prev_depth'] = current_depth - 1
         return context
 
 

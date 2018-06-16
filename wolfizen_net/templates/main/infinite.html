@@ -2,16 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>wolfizen.net | ∞</title>
+    <title>∞ | wolfizen.net</title>
+    {% if depth == 0 %}
+    <meta name="robots" content="INDEX, NOFOLLOW">
+    {% else %}
+    <meta name="robots" content="NOINDEX, NOFOLLOW">
+    {% endif %}
 </head>
 <body>
     <h1>You are on level {{ depth }}</h1>
     <p>
-        {% if depth > 0 %}
+        {% if prev_depth >= 0 %}
         <a href="{% url 'main:infinite-recursion' depth=prev_depth %}">Up a level</a>
         |
         {% endif %}
         <a href="{% url 'main:infinite-recursion' depth=next_depth %}">Down a level</a>
+    </p>
+    <hr/>
+    <p>
+        <a href="{% url 'main:root' %}">Home</a>
     </p>
 </body>
 </html>
