@@ -1,0 +1,66 @@
+==================================================================
+https://keybase.io/wolfizen
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://wolfizen.net
+  * I am wolfizen (https://keybase.io/wolfizen) on keybase.
+  * I have a public key with fingerprint 3298 C9E1 036B 7A66 89D9  2B40 F9DF 4FE5 3F07 9F22
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101e0c32bc956e844ee41baf0c6af469e8a4da7845073113c091b3e22f2db5f1edd0a",
+      "fingerprint": "3298c9e1036b7a6689d92b40f9df4fe53f079f22",
+      "host": "keybase.io",
+      "key_id": "f9df4fe53f079f22",
+      "kid": "0101e0c32bc956e844ee41baf0c6af469e8a4da7845073113c091b3e22f2db5f1edd0a",
+      "uid": "e08d49185e0c3f6ec71368bd33e36119",
+      "username": "wolfizen"
+    },
+    "service": {
+      "hostname": "wolfizen.net",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1529177895,
+  "expire_in": 157680000,
+  "prev": "6ebbbf20d656d010751be0083036793443baf4612c77de33e77954730f48986e",
+  "seqno": 11,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtUltIFFEY3m3VNrXwIQSjDZwoS1Y7Z+6z1Ga9dEO7gJVFbXNmzqyTNrPujGu7
+UZaFUFCK3aEELaQ7FRWR1VqCUbb70kNFEFEUFASVdFfszFIv0WPn5XD+833f+f7v
+/O3jPS6vu3f03eUZX/QR9+Bb5Fo7LTxnC4VMNU4FtlB1OLPhehVbdqhOV6kABSCA
+GCgMjRSJ47HIshizEMkaUHhZY3kJizKryoLIckBgIGQUIEHEYJrWaBVxGsSqCmTK
+T2m6EcbRSFQ3bCLL0JKoSBgChkeCzPOipEo0YoEmqRqrYY7RgCBpNE2ItablMIg5
+JFu4XDdJjRxCGXv/wP9n340ZOQxElZWgyDmaGo8VATK8iFSGwQwPoeQALRw15E2Y
+oJvMek1PYIPa6qdINaYr2AnW6eQvRLmBbcKNRE3bVMx6clNr2xEr4DDteCQDxSj0
+WySEdEMlORJGDEct3TSoACRIxdYdVcjREhQEUeL8FN4c0aM4pDsITuBFQJbzDo4R
+SR4jhDS6Bqg8x6skKoGDCAMgMuQ/BIlhWQY5IUFaEQQVkyYFQeJYgQEaK0oijymn
+rwbDJOKQGJXDRNTSw4ZsN0YxtTV3t5vJcrm9Ll9hcVb2ogL19c7ez9s9yXl/hi97
+jDN5rtxxBX8qrSGva39e7rWXQ3Pvf8/JObDj1LG3PxZfSk8Lnmro/t59OwCG10zo
+bK39WbKya6K/+FnLIz3nafc9/42y06h01tJvLRNiRqHv0KOKbbNavZPbV5eUPl7Q
+XLf+dWJSTfO6w6zZ6ZmkxJ90BtelU7uGNw28Sn/o+Hn3WaN7bjV3dP7S5/BK1tqq
+i9qnzxsGE9VTbvUnHhztP788WVlQ+P7MEphaBo5bwZcvikZmNk+Pu/tWje15U3n9
+4cinhnOpNehEcVPe1b4PA/nmxrO+b/rYoWRnidB3887BbCpVMdq2r7cqXhPM75nh
+qbrwdeHC9NmOPe0rupJfm4q68trWHzH2+mIfp8w+WdY29Rc=
+=Oy6q
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/wolfizen
+
+==================================================================
