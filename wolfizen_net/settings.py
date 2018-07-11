@@ -84,10 +84,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'wolfizen_net.urls'
 
+TEMPLATE_DIR = os.path.join(BASE_DIR, os.path.join('wolfizen_net', 'templates'))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, os.path.join('wolfizen_net', 'templates'))],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
