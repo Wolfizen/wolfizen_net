@@ -14,9 +14,9 @@ git clone https://github.com/Wolfizen/wolfizen_net.git ./wolfizen_net
 
 ## Production setup
 cd wolfizen_net/
-virtualenv ./env
+python3 -m virtualenv ./env
 source ./env/bin/activate
-pip install -r ./requirements.txt
+python3 -m pip install -r ./requirements.txt
 ./manage.py collectstatic
 chown -R http:http .
 
