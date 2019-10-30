@@ -13,10 +13,10 @@
     <h1>You are on level {{ depth }}</h1>
     <p>
         {% if prev_depth >= 0 %}
-        <a href="{% url 'main:infinite-recursion' depth=prev_depth %}">Up a level</a>
+        <a href="{% url 'main:infinite-links' depth=prev_depth %}">Up a level</a>
         |
         {% endif %}
-        <a href="{% url 'main:infinite-recursion' depth=next_depth %}">Down a level</a>
+        <a href="{% url 'main:infinite-links' depth=next_depth %}">Down a level</a>
     </p>
     <hr/>
     <p>

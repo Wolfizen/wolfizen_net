@@ -1,6 +1,14 @@
-db.sqlite3
-__pycache__
+# IDE files
 .idea/
+
+# Python files
 env/
+__pycache__
+
+# Django artifacts and runtime files
 static/
+db.sqlite3
+wolfizen_net/secret_key.py
+
+# Gunicorn socket
 *.sock
