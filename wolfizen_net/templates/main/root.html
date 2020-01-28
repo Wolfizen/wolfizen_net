@@ -1,78 +1,79 @@
-<!DOCTYPE html>
+{% extends 'main/base.html' %}
+
 {% load static %}
-<html lang="en">
-<head>
-    <style>
-/* Font Configuraiton */
-@import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
-body {
-    text-align: center;
-    font-family: 'Overpass Mono', monospace;
-}
 
-
-img {
-    max-width: 100%; /* Responsive images, size down on mobile devices */
-    color: red; /* Style the alt-text (if it does not load properly) */
-}
-
-/* h[1-6] tags config */
-.heading {
-    margin-top: 0;
-    margin-bottom: 0.2em;
-}
-.heading ~ .heading {
-    margin-top: 1em;
-    margin-bottom: 0.2em;
-}
-
-
-/* Center tables */
-table {
-    margin-left: auto;
-    margin-right: auto;
-    border: 0;
-}
-
-/* Center-aligned text appearance within the links table */
-#links-table td:nth-child(1) {text-align: right;}
-#links-table td:nth-child(3) {text-align: left;}
-
-
-/* Background Configuration */
-/* https://codepen.io/P1N2O/pen/pyBNzX */
-html {
-    min-height: 100%;
-}
-body {
-    color: #fff;
-    background: linear-gradient(45deg, #73e9e0, #922fc4);
-    background-size: 400% 400%;
-    background-repeat: no-repeat;
-    -webkit-animation: animated-bg 15s ease infinite;
-    -moz-animation: animated-bg 15s ease infinite;
-    animation: animated-bg 15s ease infinite;
-}
-@-webkit-keyframes animated-bg {
-    0% {background-position: 0% 50%}
-    50% {background-position: 100% 50%}
-    100% {background-position: 0% 50%}
-}
-@-moz-keyframes animated-bg {
-    0% {background-position: 0% 50%}
-    50% {background-position: 100% 50%}
-    100% {background-position: 0% 50%}
-}
-@keyframes animated-bg {
-    0% {background-position: 0% 50%}
-    50% {background-position: 100% 50%}
-    100% {background-position: 0% 50%}
-}
-    </style>
-    <meta charset="UTF-8">
+{% block extra_head %}
     <title>wolfizen.net</title>
-</head>
-<body>
+    <style>
+        /* Font Configuraiton */
+        @import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
+        body {
+            text-align: center;
+            font-family: 'Overpass Mono', monospace;
+        }
+
+
+        img {
+            max-width: 100%; /* Responsive images, size down on mobile devices */
+            color: red; /* Style the alt-text (if it does not load properly) */
+        }
+
+        /* h[1-6] tags config */
+        .heading {
+            margin-top: 0;
+            margin-bottom: 0.2em;
+        }
+        .heading ~ .heading {
+            margin-top: 1em;
+            margin-bottom: 0.2em;
+        }
+
+
+        /* Center tables */
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            border: 0;
+        }
+
+        /* Center-aligned text appearance within the links table */
+        #links-table td:nth-child(1) {text-align: right;}
+        #links-table td:nth-child(3) {text-align: left;}
+
+
+        /* Background Configuration */
+        /* https://codepen.io/P1N2O/pen/pyBNzX */
+        html {
+            min-height: 100%;
+        }
+        body {
+            color: #fff;
+            background: linear-gradient(45deg, #73e9e0, #922fc4);
+            background-size: 400% 400%;
+            background-repeat: no-repeat;
+            -webkit-animation: animated-bg 15s ease infinite;
+            -moz-animation: animated-bg 15s ease infinite;
+            animation: animated-bg 15s ease infinite;
+        }
+        @-webkit-keyframes animated-bg {
+            0% {background-position: 0% 50%}
+            50% {background-position: 100% 50%}
+            100% {background-position: 0% 50%}
+        }
+        @-moz-keyframes animated-bg {
+            0% {background-position: 0% 50%}
+            50% {background-position: 100% 50%}
+            100% {background-position: 0% 50%}
+        }
+        @keyframes animated-bg {
+            0% {background-position: 0% 50%}
+            50% {background-position: 100% 50%}
+            100% {background-position: 0% 50%}
+        }
+    </style>
+{% endblock extra_head %}
+
+{% block content %}
     <img src="{% static 'main/2018-06-15_sleepygills_sassy_icon_512_transparent.png' %}" alt="wolfizen profile icon" />
     <h5>Image credit: <a href="https://furaffinity.net/user/sleepygills">sleepygills</a></h5>
     <h1 class="heading">wolfizen.net</h1>
@@ -115,5 +116,4 @@ body {
         <a href="{% url 'main:infinite-links' depth=0 %}">Infinite links</a>
         <a href="{% url 'main:rainbow-text' %}">Rainbow text</a>
     </p>
-</body>
-</html>
+{% endblock content %}

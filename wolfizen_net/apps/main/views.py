@@ -2,12 +2,14 @@ from django.http import FileResponse, Http404
 from django.views.generic import TemplateView
 from django.views.generic.base import View
 
+from wolfizen_net.apps.main.util import CachedViewMixin
 
-class RootPageView(TemplateView):
+
+class RootPageView(CachedViewMixin, TemplateView):
     template_name = "main/root.html"
 
 
-class InfiniteLinksView(TemplateView):
+class InfiniteLinksView(CachedViewMixin, TemplateView):
     template_name = "main/infinite.html"
 
     def get_context_data(self, **kwargs):
@@ -19,11 +21,11 @@ class InfiniteLinksView(TemplateView):
         return context
 
 
-class RainbowTextView(TemplateView):
+class RainbowTextView(CachedViewMixin, TemplateView):
     template_name = "main/rainbow.html"
 
 
-class FileView(View):
+class FileView(CachedViewMixin, View):
     """
     This custom view will serve any specified file.
 
