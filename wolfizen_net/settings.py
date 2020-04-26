@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.staticfiles',
     'wolfizen_net.apps.main',
+    'wolfizen_net.apps.deeplistening',
 ]
 
 MIDDLEWARE = [
@@ -101,9 +102,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-
 STATIC_ROOT = os.path.join(base_dir, 'static')
 STATICFILES_DIRS = [os.path.join(base_dir, os.path.join('wolfizen_net', 'assets'))]
+
+
+# Dynamic files (uploaded images, generated files)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(base_dir, 'media')
 
 
 # Logging

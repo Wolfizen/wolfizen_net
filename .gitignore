@@ -7,6 +7,7 @@ __pycache__
 
 # Django artifacts and runtime files
 static/
+media/
 db.sqlite3
 wolfizen_net/secret_key.py
 

@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block extra_head %}
+    <title>DLCC Generative Composition</title>
+    <style>
+        /* Font Configuraiton */
+        @import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
+        body {
+            text-align: center;
+            font-family: 'Overpass Mono', monospace;
+        }
+
+        /* h[1-6] tags config */
+        .heading {
+            margin-top: 0;
+            margin-bottom: 0.2em;
+        }
+        .heading ~ .heading {
+            margin-top: 1em;
+            margin-bottom: 0.2em;
+        }
+    </style>
+{% endblock extra_head %}
+
+{% block content %}
+    <h1 class="heading">Generative Composition Project</h1>
+    <h2 class="heading">RPI | Deep Listening: Creative Collaborations | Spring 2020</h2>
+    {% block generative_composition_content %}
+    {% endblock generative_composition_content %}
+{% endblock content %}
