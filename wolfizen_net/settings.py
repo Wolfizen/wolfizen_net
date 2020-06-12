@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.staticfiles',
     'wolfizen_net.apps.main',
-    'wolfizen_net.apps.deeplistening',
 ]
 
 MIDDLEWARE = [

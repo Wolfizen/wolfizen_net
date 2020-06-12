@@ -5,7 +5,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r"^", include('wolfizen_net.apps.main.urls')),
-    url(r"^deep-listening/", include('wolfizen_net.apps.deeplistening.urls')),
     # url(r"^admin/", admin.site.urls),
 ]
 
