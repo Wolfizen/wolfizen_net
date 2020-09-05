@@ -1,12 +1,22 @@
+from ipaddress import IPv6Address, IPv4Address
+
 from django.http import FileResponse, Http404
 from django.views.generic import TemplateView
 from django.views.generic.base import View
 
+from wolfizen_net.apps.main import util
 from wolfizen_net.apps.main.util import CachedViewMixin
 
 
 class RootPageView(CachedViewMixin, TemplateView):
     template_name = "main/root.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(RootPageView, self).get_context_data(**kwargs)
+        client_addr = util.get_client_address(self.request)
+        context['request_is_ipv6'] = isinstance(client_addr, IPv6Address)
+        context['request_is_ipv4'] = isinstance(client_addr, IPv4Address)
+        return context
 
 
 class InfiniteLinksView(CachedViewMixin, TemplateView):

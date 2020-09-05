@@ -1,3 +1,7 @@
+import traceback
+from ipaddress import ip_address, IPv4Address, IPv6Address
+from typing import Union
+
 from django.conf import settings
 from django.views.generic.base import View
 
@@ -23,3 +27,15 @@ class CachedViewMixin(View):
         response = super(CachedViewMixin, self).dispatch(request, *args, **kwargs)
         response['Cache-Control'] = "{},max-age={}".format(cacheability, max_age)
         return response
+
+
+def get_client_address(request) -> Union[IPv4Address, IPv6Address, None]:
+    try:
+        potential_addresses = [
+            request.headers.get('X-Real-IP'),
+            request.META.get('REMOTE_ADDR')]
+        address = next(filter(lambda x: x is not None, potential_addresses))
+        return ip_address(address)
+    except (ValueError, StopIteration) as ex:
+        traceback.print_exception(type(ex), ex, ex.__traceback__, chain=True)
+        return None

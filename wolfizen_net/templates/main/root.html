@@ -108,9 +108,20 @@
             <td><a href="https://www.youtube.com/channel/UCRyPENZQG1q6h2GnMG36vNg">Wolfizen</a></td>
         </tr>
     </table>
-    <h2 class="heading">Random Works</h2>
+    <h2 class="heading">Interesting Things</h2>
     <p>
         <a href="{% url 'main:infinite-links' depth=0 %}">Infinite links</a>
         <a href="{% url 'main:rainbow-text' %}">Rainbow text</a>
+    </p>
+    <p>
+        <a href='http://ipv6-test.com'>
+            {% if request_is_ipv6 %}
+                <img src="{% static 'main/ipv6-test-v6-white.png' %}" alt="IPv6 test; result is v6" title="IPv6 test"/>
+            {% elif request_is_ipv4 %}
+                <img src="{% static 'main/ipv6-test-v4-white.png' %}" alt="IPv6 test; result is v4" title="IPv6 test"/>
+            {% else %}
+                <span style="color: red">IP version test failure :(</span>
+            {% endif %}
+        </a>
     </p>
 {% endblock content %}
