@@ -1,8 +1,9 @@
 from ipaddress import IPv6Address, IPv4Address
 
 from django.http import FileResponse, Http404
+from django.http.response import HttpResponseRedirectBase, HttpResponseGone
 from django.views.generic import TemplateView
-from django.views.generic.base import View
+from django.views.generic.base import View, RedirectView
 
 from wolfizen_net.apps.main import util
 from wolfizen_net.apps.main.util import CachedViewMixin
@@ -52,3 +53,27 @@ class FileView(CachedViewMixin, View):
             return FileResponse(open(self.file_path, 'rb'), content_type=self.content_type)
         except FileNotFoundError:
             raise Http404()
+
+
+class RedirectViewKeepMethod(RedirectView):
+
+    def get(self, request, *args, **kwargs):
+        url = self.get_redirect_url(*args, **kwargs)
+        if url:
+            if self.permanent:
+                return HttpResponsePermanentRedirectKeepMethod(url)
+            else:
+                return HttpResponseRedirectKeepMethod(url)
+        else:
+            return HttpResponseGone()
+
+    def dispatch(self, request, *args, **kwargs):
+        return self.get(request, *args, **kwargs)
+
+
+class HttpResponseRedirectKeepMethod(HttpResponseRedirectBase):
+    status_code = 307
+
+
+class HttpResponsePermanentRedirectKeepMethod(HttpResponseRedirectBase):
+    status_code = 308
