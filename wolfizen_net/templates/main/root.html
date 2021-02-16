@@ -78,8 +78,8 @@
     <h5>Image credit: <a href="https://furaffinity.net/user/sleepygills">sleepygills</a></h5>
     <h1 class="heading">wolfizen.net</h1>
     <p>
-        I'm Wolfizen. You may also know me as Winona.<br/>
-        I work on stuff. Experience life. The usual.
+        I'm Wolfizen. This is my website!<br/>
+        I have links here to many of my profiles on other places online.
     </p>
     <table id="links-table">
         <tr>
@@ -116,9 +116,9 @@
     <p>
         <a href='http://ipv6-test.com'>
             {% if request_is_ipv6 %}
-                <img src="{% static 'main/ipv6-test-v6-white.png' %}" alt="IPv6 test; result is v6" title="IPv6 test"/>
+                <img src="{% static 'main/ipv6-test-v6-white.png' %}" alt="IPv6 test badge, result is v6" title="IPv6 test"/>
             {% elif request_is_ipv4 %}
-                <img src="{% static 'main/ipv6-test-v4-white.png' %}" alt="IPv6 test; result is v4" title="IPv6 test"/>
+                <img src="{% static 'main/ipv6-test-v4-white.png' %}" alt="IPv6 test badge, result is v4" title="IPv6 test"/>
             {% else %}
                 <span style="color: red">IP version test failure :(</span>
             {% endif %}
