@@ -53,6 +53,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'wolfizen_net.urls'
+APPEND_SLASH = False
 
 WSGI_APPLICATION = 'wolfizen_net.wsgi.application'
 
