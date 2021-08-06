@@ -19,4 +19,7 @@ urlpatterns = [
     url(r"^refsheet/",
         RedirectViewKeepMethod.as_view(url="https://www.furaffinity.net/view/26535937/", permanent=False),
         name="refsheet"),
+    url(r"^ddnswolf/",
+        RedirectViewKeepMethod.as_view(url="https://github.com/Wolfizen/DDNSWolf", permanent=False),
+        name="ddnswolf"),
 ]
