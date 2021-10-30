@@ -1,0 +1,122 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block extra_head %}
+    <title>Pet Registration | wolfizen.net</title>
+    <meta name="robots" content="noindex, follow">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: sans;
+        }
+
+        a {
+            color: gray;
+        }
+
+        .identification {
+            display: inline-flex;
+            flex-direction: column;
+            margin: 1rem;
+            overflow: hidden;
+            border-radius: 0.7rem;
+            background-color: #333333;
+        }
+
+        .identification header {
+            display: inline-flex;
+            justify-content: space-between;
+            background-color: {{ accent_color }};
+            font-size: 18px;
+        }
+
+        .identification header > * {
+            margin: 1rem;
+            font-size: 1em;
+        }
+
+        .identification header svg {
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .identification section {
+            display: inline-flex;
+            align-items: flex-start;
+        }
+
+        .identification section img.identification-photo {
+            height: 6rem;
+            margin: 1rem;
+            border-radius: 0.2rem;
+            border-color: white;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        .identification section table {
+            margin: 1rem;
+            margin-left: 0;
+            background-color: #444444;
+            border-radius: 0.2rem;
+            border-spacing: 0.3rem;
+        }
+
+        .identification section table td:nth-child(1) {
+            text-align: right;
+            font-size: 0.8em;
+        }
+    </style>
+{% endblock extra_head %}
+
+{% block content %}
+    <figure class="identification">
+        <header>
+            <h1>Pet Identification Card</h1>
+            <svg viewBox="0 0 400 400">
+                <use href="{% static 'main/animal-track.svg' %}#group0" />
+            </svg>
+        </header>
+        <section>
+            <img
+                class="identification-photo"
+                title="Identification photo"
+                alt="identification photo"
+                src="{% static photo_path %}"
+            />
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><strong>{{ name }}</strong></td>
+                </tr>
+                <tr>
+                    <td>Species</td>
+                    <td><i>{{ species }}</i></td>
+                </tr>
+                <tr>
+                    <td>{{ variant_meta_name }}</td>
+                    <td>{{ variant }}</td>
+                </tr>
+                <tr>
+                    <td>Fur color</td>
+                    <td>{{ fur_color }}</td>
+                </tr>
+                <tr>
+                    <td>Eye color</td>
+                    <td>{{ eye_color }}</td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td>{{ weight }}</td>
+                </tr>
+            </table>
+        </section>
+    </figure>
+
+    <div>
+        Some icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
+{% endblock content %}

@@ -32,6 +32,39 @@ class InfiniteLinksView(CachedViewMixin, TemplateView):
         return context
 
 
+class PetRegistrationView(CachedViewMixin, TemplateView):
+    template_name = "main/petregistration.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(PetRegistrationView, self).get_context_data(**kwargs)
+
+        if context['pet_id'].lower() == "tala":
+            context['photo_path'] = \
+                "main/2020-03-14_Elkir_spirit_of_the_forest_icon_1914.png"
+            context['accent_color'] = "#5fb0ff"
+            context['name'] = "Tala Luna"
+            context['species'] = "Canis lupus"
+            context['variant_meta_name'] = "Subspecies"
+            context['variant'] = "Northwestern wolf"
+            context['fur_color'] = "Gray"
+            context['eye_color'] = "Amber"
+            context['weight'] = "40 kg"
+
+        elif context['pet_id'].lower() == "quill":
+            context['photo_path'] = \
+                "main/2021-08-19_Holt-Odium_Quill_Refsheet_BG_feral_icon_666.png"
+            context['accent_color'] = "#4f367e"
+            context['name'] = "Quill Luna"
+            context['species'] = "Canis familiaris"
+            context['variant_meta_name'] = "Breed"
+            context['variant'] = "Border Collie"
+            context['fur_color'] = "Black & white"
+            context['eye_color'] = "Blue"
+            context['weight'] = "17 kg"
+
+        return context
+
+
 class RainbowTextView(CachedViewMixin, TemplateView):
     template_name = "main/rainbow.html"
 
