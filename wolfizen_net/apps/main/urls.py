@@ -22,7 +22,7 @@ urlpatterns = [
     # Redirects
     url(r"^refsheet$",
         RedirectViewKeepMethod.as_view(
-            url="https://www.furaffinity.net/view/26535937/", permanent=False),
+            url="https://imgur.com/a/KYZ2jmU", permanent=False),
         name="refsheet"),
     url(r"^ddnswolf$",
         RedirectViewKeepMethod.as_view(
