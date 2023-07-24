@@ -1,11 +1,9 @@
 from django.conf import settings
-from django.conf.urls import include, url
 from django.conf.urls.static import static
-from django.contrib import admin
+from django.urls import include, path
 
 urlpatterns = [
-    url(r"^", include('wolfizen_net.apps.main.urls')),
-    # url(r"^admin/", admin.site.urls),
+    path("", include('wolfizen_net.apps.main.urls')),
 ]
 
 # Serve media files in debug mode, just like static files.

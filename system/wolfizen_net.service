@@ -1,5 +1,5 @@
 [Unit]
-Description=gunicorn daemon
+Description=wolfizen.net gunicorn server
 After=network.target
 
 [Service]
