@@ -17,9 +17,9 @@ git clone https://github.com/Wolfizen/wolfizen_net.git ./wolfizen_net
 
 ## Production setup
 cd wolfizen_net/ || { echo "cd failed"; exit 1; }
-python3 -m virtualenv --python=python3 ./env
-. ./env/bin/activate
-python3 -m pip install -r ./requirements.txt
+python3.10 -m venv ./venv
+. ./venv/bin/activate
+python3.10 -m pip install -r ./requirements.txt
 ./manage.py collectstatic
 chown -R http:http .
 
