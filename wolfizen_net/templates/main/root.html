@@ -5,43 +5,30 @@
 {% block extra_head %}
     <title>wolfizen.net</title>
     <style>
-        /* Font Configuraiton */
+        /* Font */
         {% include 'main/overpass-mono.css' %}
         body {
             text-align: center;
             font-family: 'Overpass Mono', monospace;
         }
 
-
         img {
             max-width: 100%; /* Responsive images, size down on mobile devices */
             color: red; /* Style the alt-text (if it does not load properly) */
         }
 
-        /* h[1-6] tags config */
-        .heading {
-            margin-top: 0;
-            margin-bottom: 0.2em;
-        }
-        .heading ~ .heading {
-            margin-top: 1em;
-            margin-bottom: 0.2em;
-        }
-
-
         /* Center tables */
         table {
             margin-left: auto;
             margin-right: auto;
-            border: 0;
+            /*border: 0;*/
         }
 
         /* Center-aligned text appearance within the links table */
         #links-table td:nth-child(1) {text-align: right;}
         #links-table td:nth-child(3) {text-align: left;}
 
-
-        /* Background Configuration */
+        /* Animated background */
         /* https://codepen.io/P1N2O/pen/pyBNzX */
         html {
             min-height: 100%;
@@ -74,19 +61,16 @@
 {% endblock extra_head %}
 
 {% block content %}
-    <img src="{% static 'main/2018-06-15_sleepygills_sassy_icon_512_transparent.png' %}" alt="wolfizen profile icon" />
-    <h5>Image credit: <a href="https://furaffinity.net/user/sleepygills">sleepygills</a></h5>
-    <h1 class="heading">wolfizen.net</h1>
+    <figure>
+        <img src="{% static 'main/2018-06-15_sleepygills_sassy_icon_512_transparent.png' %}" alt="wolfizen profile icon" />
+        <figcaption>Image credit: <a href="https://furaffinity.net/user/sleepygills">sleepygills</a></figcaption>
+    </figure>
+    <h1>wolfizen.net</h1>
     <p>
-        I'm Wolfizen. This is my website!<br/>
-        I have links here to many of my profiles on other places online.
+        I'm Winona. You may also know me as Wolfizen. This is my website!<br/>
+        I have links here to many of my profiles on other places online, and projects I have made.
     </p>
     <table id="links-table">
-        <tr>
-            <td>Mastodon</td>
-            <td>:</td>
-            <td><a rel="me" href="https://yiff.life/@Wolfizen">@Wolfizen@yiff.life</a></td>
-        </tr>
         <tr>
             <td>Github</td>
             <td>:</td>
@@ -102,26 +86,32 @@
             <td>:</td>
             <td><a href="https://soundcloud.com/wolfizen">Wolfizen</a></td>
         </tr>
-        <tr>
-            <td>YouTube</td>
-            <td>:</td>
-            <td><a href="https://www.youtube.com/channel/UCRyPENZQG1q6h2GnMG36vNg">Wolfizen</a></td>
-        </tr>
     </table>
-    <h2 class="heading">Interesting Things</h2>
+    <h2>Projects</h2>
+    <p>
+        <a href="https://projectret.ro">Project: Retro</a>
+        <a href="{% url 'main:ddnswolf' %}">DDNSWolf</a>
+    </p>
+    <h2>Friends</h2>
+    <p>
+        <a href="https://anchovie.art/">Anchovie</a>
+        <a href="https://hecate.space/">Hecate</a>
+        <a href="https://deers.io/">West</a>
+    </p>
+    <h2>Silly Things</h2>
     <p>
         <a href="{% url 'main:infinite-links' depth=0 %}">Infinite links</a>
         <a href="{% url 'main:rainbow-text' %}">Rainbow text</a>
     </p>
-    <p>
+    <footer>
         <a href='http://ipv6-test.com'>
             {% if request_is_ipv6 %}
-                <img src="{% static 'main/ipv6-test-v6-white.png' %}" alt="IPv6 test badge, result is v6" title="IPv6 test"/>
+                <img src="{% static 'main/ipv6-test-v6-white.png' %}" alt="IP test badge showing a test result of v6" title="You connected to this site via IPv6"/>
             {% elif request_is_ipv4 %}
-                <img src="{% static 'main/ipv6-test-v4-white.png' %}" alt="IPv6 test badge, result is v4" title="IPv6 test"/>
+                <img src="{% static 'main/ipv6-test-v4-white.png' %}" alt="IP test badge showing a test result of v4" title="You connected to this site via IPv4"/>
             {% else %}
                 <span style="color: red">IP version test failure :(</span>
             {% endif %}
         </a>
-    </p>
+    </footer>
 {% endblock content %}

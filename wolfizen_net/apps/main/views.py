@@ -1,4 +1,5 @@
 from ipaddress import IPv6Address, IPv4Address
+from typing import Any
 
 from django.http import FileResponse, Http404
 from django.http.response import HttpResponseRedirectBase, HttpResponseGone
@@ -33,34 +34,39 @@ class InfiniteLinksView(CachedViewMixin, TemplateView):
 
 
 class PetRegistrationView(CachedViewMixin, TemplateView):
-    template_name = "main/petregistration.html"
+    template_name = "main/pet-registration.html"
+
+    pets: dict[str, dict[str, Any]] = {
+        "tala": {
+            "name": "Tala Luna",
+            "species": "Canis lupus",
+            "variant": "Northwestern wolf",
+            "variant_meta_name": "Subspecies",
+            "fur_color": "Gray",
+            "eye_color": "Amber",
+            "weight": "40 kg",
+            "photo_path": "main/2020-03-14_Elkir_spirit_of_the_forest_icon_1914.png",
+            "accent_color": "#5fb0ff",
+        },
+        "quill": {
+            "name": "Quill Luna",
+            "species": "Canis familiaris",
+            "variant": "Border Collie",
+            "variant_meta_name": "Breed",
+            "fur_color": "Black & white",
+            "eye_color": "Blue",
+            "weight": "17 kg",
+            "photo_path": "main/2021-08-19_Holt-Odium_Quill_Refsheet_BG_feral_icon_666.png",
+            "accent_color": "#4f367e",
+        },
+    }
 
     def get_context_data(self, **kwargs):
         context = super(PetRegistrationView, self).get_context_data(**kwargs)
 
-        if context['pet_id'].lower() == "tala":
-            context['photo_path'] = \
-                "main/2020-03-14_Elkir_spirit_of_the_forest_icon_1914.png"
-            context['accent_color'] = "#5fb0ff"
-            context['name'] = "Tala Luna"
-            context['species'] = "Canis lupus"
-            context['variant_meta_name'] = "Subspecies"
-            context['variant'] = "Northwestern wolf"
-            context['fur_color'] = "Gray"
-            context['eye_color'] = "Amber"
-            context['weight'] = "40 kg"
-
-        elif context['pet_id'].lower() == "quill":
-            context['photo_path'] = \
-                "main/2021-08-19_Holt-Odium_Quill_Refsheet_BG_feral_icon_666.png"
-            context['accent_color'] = "#4f367e"
-            context['name'] = "Quill Luna"
-            context['species'] = "Canis familiaris"
-            context['variant_meta_name'] = "Breed"
-            context['variant'] = "Border Collie"
-            context['fur_color'] = "Black & white"
-            context['eye_color'] = "Blue"
-            context['weight'] = "17 kg"
+        pet_id = context.get("pet_id", "")
+        if pet_id in self.pets:
+            context.update(self.pets[pet_id])
 
         return context
 
@@ -74,8 +80,8 @@ class FileView(CachedViewMixin, View):
     This custom view will serve any specified file.
 
     as_view() accepts two arguments:
-        file_path: The path to the file. Recommended to use `os.path.join(TEMPLATE_DIR, ...)`
-        content_type: Passed into FileResponse().
+        file_path: The path to the file. Recommended: `os.path.join(TEMPLATE_DIR, ...)`
+        content_type: The MIME-type of the file.
     """
 
     file_path = None
@@ -83,7 +89,9 @@ class FileView(CachedViewMixin, View):
 
     def get(self, request, *args, **kwargs):
         try:
-            return FileResponse(open(self.file_path, 'rb'), content_type=self.content_type)
+            return FileResponse(
+                open(self.file_path, 'rb'),
+                content_type=self.content_type)
         except FileNotFoundError:
             raise Http404()
 

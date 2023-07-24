@@ -16,7 +16,7 @@ urlpatterns = [
     url(r"^rainbow$", RainbowTextView.as_view(), name="rainbow-text"),
     url(r"^resume.pdf$",
         FileView.as_view(
-            file_path=os.path.join(settings.TEMPLATE_DIR, "main/resume.pdf"),
+            file_path=os.path.join(settings.TEMPLATE_DIR, "main/Resumé.pdf"),
             content_type="application/pdf"),
         name="resume"),
     # Redirects

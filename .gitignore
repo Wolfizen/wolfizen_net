@@ -2,7 +2,7 @@
 .idea/
 
 # Python files
-env/
+venv/
 __pycache__
 
 # Django artifacts and runtime files
