@@ -26,7 +26,10 @@ except ImportError:
     secret_key_file.write(f'SECRET_KEY = "{get_random_secret_key()}"\n')
     secret_key_file.close()
     # noinspection PyUnresolvedReferences
-    from wolfizen_net.secret_key import SECRET_KEY
+    try:
+        from wolfizen_net.secret_key import SECRET_KEY
+    except ImportError:
+        print("Secret key file still empty after generating it.. skipping.")
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'wolfizen.net']
 
